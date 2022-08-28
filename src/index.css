@@ -1,3 +1,8 @@
+@import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+*{
+  font-family: 'Roboto';
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,8 +11,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+:root{
+  --primary-color: #00A4B8;
+  --secondary-color:  #84c5ce;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.filter-primary-color{
+  filter: invert(61%) sepia(40%) saturate(7086%) hue-rotate(152deg) brightness(91%) contrast(103%);
+}
+.filter-grey{
+  filter: invert(78%) sepia(13%) saturate(26%) hue-rotate(42deg) brightness(106%) contrast(95%);
 }

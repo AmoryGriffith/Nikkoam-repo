@@ -1,5 +1,5 @@
 import Header from './Header';
-import Hero from './Hero';
+import About from './About';
 import Carousel from './Carousel';
 import Footer from './Footer';
-export { Header, Hero, Carousel, Footer };
+export { Header, About, Carousel, Footer };

@@ -4,7 +4,10 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Screen.MainScreen />
+      <Screen.Header />
+      {/* <Screen.About />
+      <Screen.Carousel />
+      <Screen.Footer /> */}
     </div>
   );
 }
