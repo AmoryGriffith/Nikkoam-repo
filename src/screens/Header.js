@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import useScreens from '../hooks/useScreen';
 import { useHistory } from 'react-router-dom';
 import {
@@ -8,6 +8,9 @@ import {
   Seacrch,
   CollapsedMenu,
 } from '../components/MenuBar';
+import MovingWave from '../components/MovingWave';
+import { Content1 } from '../components/Content';
+import gsap from 'gsap';
 export default function Header() {
   const router = useHistory();
   const { width } = useScreens();
@@ -16,9 +19,23 @@ export default function Header() {
     setVisible(true);
   };
   const [region, setRegion] = useState('Singapore');
+  let motion = useRef(null);
+  useEffect(() => {
+    gsap.fromTo(
+      '.menu-bar',
+      { X: 0, y: -50, opacity: 0 },
+      { x: 0, y: 0, opacity: 1, duration: 1.25 },
+      {
+        scrollTrigger: {
+          trigger: '.menu-bar',
+          start: 'top top',
+        },
+      }
+    );
+  }, []);
   return (
-    <div className="header-container">
-      <div className="menu-bar">
+    <section className="header-container" style={{ height: '100vh' }}>
+      <div className="menu-bar" ref={(el) => (motion = el)}>
         <Logo width={width} />
         <div
           style={{
@@ -65,26 +82,23 @@ export default function Header() {
           )}
         </div>
       </div>
-      {/* <div className="wave-img"></div>
-      <div className="header-texts">
-        <h3 className="title">
-          Progressive Solutions <br />
-          Competitive Performance <br />
-          Global Citizen with Asian DNA <br />
-        </h3>
-        <div>
-          <h5 className="sub-title">
-            We're one of Asia's largest asset managers.
-          </h5>
-          <p className="text-link">
-            Learn more about who we are
-            <img
-              src="/link-icon.svg"
-              className="filter-primary-color arrow-icon"
-            />
-          </p>
-        </div>
-      </div> */}
-    </div>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          flexDirection: width > 1080 ? 'row' : 'column',
+        }}
+      >
+        <MovingWave startPosition={'.menu-bar'} midPosition={'.midposition'} />
+        <Content1
+          title1={'Progressive Solutions'}
+          title2={'Competitive Performance'}
+          title3={'Global Citizen with Asian DNA'}
+          subtitle={"We're one of Asia's largest asset managers."}
+          link={'Learn more about who we are'}
+        />
+      </div>
+      <div className="midposition"></div>
+    </section>
   );
 }

@@ -1,0 +1,13 @@
+.content-title{
+    font-size: 58px;
+    line-height: 1;
+}
+.sub-title-container{
+    border-left: 0.25px solid #8A8A8A;
+    padding: 50px 30px;
+}
+.sub-title-container > p{
+    height: inherit;
+    display: flex;
+    align-content: flex-start;
+}

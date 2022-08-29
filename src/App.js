@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import * as Screen from './screens';
 import './App.css';
+import 'antd/dist/antd.min.css';
+
 function App() {
   return (
     <div>
