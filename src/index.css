@@ -25,3 +25,6 @@ code {
 .filter-grey{
   filter: invert(78%) sepia(13%) saturate(26%) hue-rotate(42deg) brightness(106%) contrast(95%);
 }
+.filter-white{
+  filter: invert(96%) sepia(6%) saturate(191%) hue-rotate(310deg) brightness(112%) contrast(96%);
+}

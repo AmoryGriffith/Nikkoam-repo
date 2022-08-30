@@ -1,30 +1,15 @@
-.main-container{
-    .container{
-        width: 100%;
-        height: 100vh;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        visibility: hidden;
-    }
+.about-cointainer{
+   
 }
-
-.body-container{
-    width: 1440px;
-    height: 960;
-    position: relative;
-    overflow: hidden; 
-    &:after{
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        background: white;
-    }
-    .about-content{
-        width: 1440px;
-        position: absolute;
-    }
+.about-content{
+    height: 100vh;
+    background-color: var(--primary-color);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
 }
-
+.grp-img{
+    flex: 1;
+}

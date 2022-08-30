@@ -1,11 +1,33 @@
 .main{
     // display: flex;
-    height: 100vh;
+    height: 50vh;
 }
+
+
+@keyframes two {
+    0% {
+      transform: rotateY(0);
+    }
+    100% {
+      transform: rotateY(-70deg);
+    }
+  }
 .wave{
-    position: absolute;
+    transform: rotateY(180deg) ;
+    animation: two 2s infinite;
+    animation-direction:alternate-reverse;
+    position: fixed;
     top: 20;
     left: 0;
     object-fit: cover;
-    z-index: 1;
+    z-index: -1;
+    width: 80vh;
+}
+.wave-mobile{
+    position: absolute;
+    top: 10;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+    width: 100%;
 }

@@ -6,8 +6,8 @@ function App() {
   return (
     <div>
       <Screen.Header />
-      {/* <Screen.About />
-      <Screen.Carousel />
+      <Screen.About />
+      {/*  <Screen.Carousel />
       <Screen.Footer /> */}
     </div>
   );

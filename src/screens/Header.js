@@ -85,12 +85,17 @@ export default function Header() {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'flex-end',
           flexDirection: width > 1080 ? 'row' : 'column',
         }}
       >
-        <MovingWave startPosition={'.menu-bar'} midPosition={'.midposition'} />
+        <MovingWave
+          startPosition={'.menu-bar'}
+          midPosition={'.midposition'}
+          width={width}
+        />
         <Content1
+          width={width}
           title1={'Progressive Solutions'}
           title2={'Competitive Performance'}
           title3={'Global Citizen with Asian DNA'}
