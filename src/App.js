@@ -7,8 +7,8 @@ function App() {
     <div>
       <Screen.Header />
       <Screen.About />
-      {/*  <Screen.Carousel />
-      <Screen.Footer /> */}
+      <Screen.Funds />
+      <Screen.Footer />
     </div>
   );
 }

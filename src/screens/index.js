@@ -1,5 +1,5 @@
 import Header from './Header';
 import About from './About';
-import Carousel from './Carousel';
+import Funds from './Funds';
 import Footer from './Footer';
-export { Header, About, Carousel, Footer };
+export { Header, About, Funds, Footer };

@@ -1,27 +1,45 @@
 import React, { useRef, useEffect } from 'react';
-import { TweenMax, Power3, Power2, TimelineLite } from 'gsap';
+import gsap, { TweenMax, Power3, Power2, TimelineLite } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import '../styles/about.scss';
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import { Content1, Content2 } from '../components/Content';
 import useScreen from '../hooks/useScreen';
 export default function About() {
   const { width } = useScreen();
-  // let container = useRef(null);
-  // let content = useRef(null);
-  // let imageReveal = CSSRulePlugin.getRule('.body-container:after');
-  // const tl = new TimelineLite();
-  // useEffect(() => {
-  //   tl.to(container, 0, { css: { visibility: 'visible' } })
-  //     .to(imageReveal, 1.4, { width: '0%', ease: Power2.easeInOut })
-  //     .from(content, 1.4, { scale: 1.6, ease: Power2.easeInOut, delay: -1.6 });
-  // }, []);
-  // tl.to(".class", {duration: 2, rotation: "+=360"}, "spin");
-
+  let aboutReveal = CSSRulePlugin.getRule('.about-content:after');
+  const tl = new TimelineLite();
+  const aboutContainer = useRef(null);
+  const group = useRef(null);
+  useEffect(() => {
+    tl.to('.about-container', 0, {
+      scrollTrigger: {
+        trigger: '.about-container',
+        start: 'top center',
+        scrub: true,
+      },
+      css: { visibility: 'visible' },
+    }).to(aboutReveal, 2.4, { width: '0%', ease: Power2.easeInOut });
+  }, []);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to('.grp-img', {
+      rotateZ: 360,
+      x: 100,
+      duration: 2.8,
+      scrollTrigger: {
+        trigger: '.grp-img',
+        start: 'top center',
+        scrub: true,
+        toggleActions: 'restart pause resume reverse',
+      },
+    });
+  });
   return (
-    <section className="about-container">
+    <section className="about-container" ref={aboutContainer}>
       <div className="about-content">
-        <div style={{ width: '40vw' }}>
-          <img src="/group.svg" />
+        <div style={{ width: '40vw' }} className="img-container">
+          <img src="/group.svg" className="grp-img" ref={group} />
         </div>
         <Content2
           width={width}
