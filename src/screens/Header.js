@@ -89,11 +89,14 @@ export default function Header() {
           flexDirection: width > 1080 ? 'row' : 'column',
         }}
       >
-        <MovingWave
-          startPosition={'.menu-bar'}
-          midPosition={'.midposition'}
-          width={width}
-        />
+        <div>
+          <MovingWave
+            startPosition={'.menu-bar'}
+            midPosition={'.midposition'}
+            width={width}
+          />
+        </div>
+
         <Content1
           width={width}
           title1={'Progressive Solutions'}

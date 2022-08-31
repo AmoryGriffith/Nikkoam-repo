@@ -1,42 +1,47 @@
-.main{
-    height: 50vh;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    top: 10;
+
+// .wave{
+//     transform: translate(-50%, -50%);
+//     backface-visibility: hidden;
+//     transform-style: preserve-3d;
+// }
+// .wave-mobile{
+//     position: absolute;
+//     top: 10;
+//     left: 0;
+//     object-fit: cover;
+//     z-index: -1;
+//     width: 100%;
+//     transform: translate(-50%, -50%);
+//     backface-visibility: hidden;
+//     transform-style: preserve-3d;
+// }
+
+$pi: 3.14159265358979;
+$cylinder-width: 42vw;
+$face-count: 1;
+$face-deg: (360deg / $face-count);
+$face-width: ($cylinder-width / $face-count);
+$face-shift: ($cylinder-width / $pi / 2);
+.cylinder {
+    top: 15;
     left: 0;
-}
-.wave-container{
-  // position: relative;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-.wave{
     position: fixed;
+    height: 100vh;
+    width: $cylinder-width;
+    transform-style: preserve-3d;
+      transform-origin: 50% 50%;
+    z-index: -1;
+  }
+
+  .wave {
+    position: absolute;
+    height: 100vh;
+    width: $face-width;
     top: 0;
     left: 0;
-    object-fit: cover;
-    z-index: -1;
-    width: 50vw;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
-}
-.wave-mobile{
-    position: absolute;
-    top: 10;
-    left: 0;
-    object-fit: cover;
-    z-index: -1;
-    width: 100%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
+    transform: rotateY(calc(#{$face-deg} * var(--index))) translateZ(
+        calc(#{$face-shift} - -6px)
+      );
+      transform-origin: 20% 80%;
+  }
