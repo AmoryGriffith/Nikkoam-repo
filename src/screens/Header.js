@@ -71,7 +71,7 @@ export default function Header() {
                 text4={'America'}
                 text5={'China'}
               />
-              <Seacrch />
+              <Seacrch width={width} />
             </>
           ) : (
             <>

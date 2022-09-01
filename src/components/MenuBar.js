@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/menubar.scss';
-import { Drawer } from 'antd';
+import { Button, Drawer, Form, Modal, Input } from 'antd';
 export const Logo = ({ width }) => {
   return (
     <div
@@ -82,10 +82,57 @@ export const DropDown = ({
   );
 };
 
-export const Seacrch = () => {
+export const Seacrch = ({ width }) => {
+  const [visible, setVisible] = useState(false);
+  const [state, setState] = useState({
+    search: '',
+  });
+  const onFinish = () => {
+    console.log(state.search);
+  };
+  const openForm = () => {
+    setVisible(true);
+  };
+  const closeForm = () => {
+    setVisible(false);
+  };
   return (
-    <div className="search">
+    <div className="search" onClick={openForm}>
       <img src="/search.svg" className="image-filter-hover" />
+      <Modal
+        visible={visible}
+        onCancel={(e) => {
+          e.stopPropagation();
+          setVisible(false);
+        }}
+        footer={null}
+        closable={true}
+      >
+        <Form
+          layout="inline"
+          onFinish={onFinish}
+          style={{ display: 'flex', justifyContent: 'space-around' }}
+        >
+          <Form.Item>
+            <Input
+              style={{ width: width > 1080 ? '15vw' : '200px' }}
+              onChange={(e) => setState({ ...state, search: e.target.value })}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Button
+              type="primary"
+              htmlType="submit"
+              onClick={(e) => {
+                e.stopPropagation();
+                setVisible(false);
+              }}
+            >
+              Seacrch
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 };
