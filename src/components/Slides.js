@@ -1,58 +1,55 @@
 import gsap from 'gsap';
 import React, { useEffect, useState } from 'react';
-import '../styles/carousel.scss';
+import '../styles/slides.scss';
 import { useSwipeable } from 'react-swipeable';
 
-export default function Carousel({ data, id, numb, children }) {
-  // const [numb, setNumb] = useState(0);
-  // const [paused, setPaused] = useState(false);
-  // const updateIndex = (newIndex) => {
-  //   if (newIndex < 0) {
-  //     newIndex = React.Children.count(children) - 1;
-  //   } else if (newIndex >= React.Children.count(children)) {
-  //     newIndex = 0;
-  //   }
-  //   setNumb(newIndex);
-  // };
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (!paused) {
-  //       updateIndex(activeIndex + 1);
-  //     }
-  //   }, 3000);
-
-  //   return () => {
-  //     if (interval) {
-  //       clearInterval(interval);
-  //     }
-  //   };
-  // });
-  // const handlers = useSwipeable({
-  //   onSwipedLeft: () => updateIndex(activeIndex + 1),
-  //   onSwipedRight: () => updateIndex(activeIndex - 1),
-  // });
+export default function Slide({
+  data,
+  id,
+  numb,
+  onClick1,
+  onClick2,
+  onClick3,
+  onClick4,
+  width,
+  value,
+}) {
   return (
-    <div className="number-container" id={id}>
-      <div className="control-btn">
-        <p id="01" className={numb === '01' ? 'numb-active' : 'numb-default'}>
+    <div
+      className={width > 1080 ? 'number-container' : 'number-container-mobile'}
+      id={id}
+    >
+      <div className={width > 1080 ? 'control-btn' : 'control-btn-mobile'}>
+        <p
+          className={id === 1 ? 'numb-active' : 'numb-default'}
+          onClick={onClick1}
+        >
           01
         </p>
-        <p id="02" className={numb === '02' ? 'numb-active' : 'numb-default'}>
+        <p
+          className={id === 2 ? 'numb-active' : 'numb-default'}
+          onClick={onClick2}
+        >
           02
         </p>
-        <p id="03" className={numb === '03' ? 'numb-active' : 'numb-default'}>
+        <p
+          className={id === 3 ? 'numb-active' : 'numb-default'}
+          onClick={onClick3}
+        >
           03
         </p>
-        <p id="04" className={numb === '04' ? 'numb-active' : 'numb-default'}>
+        <p
+          className={id === 4 ? 'numb-active' : 'numb-default'}
+          onClick={onClick4}
+        >
           04
         </p>
       </div>
       <div>
-        {numb === '01' && (
+        {id === 1 && (
           <div>
             {data.corp1.map((item) => (
               <FundingContent
-                fundName={item.fundName}
                 navData={item.navData}
                 netAssets={item.netAssets}
                 dayChange={item.dayChange}
@@ -61,11 +58,10 @@ export default function Carousel({ data, id, numb, children }) {
             ))}
           </div>
         )}
-        {numb === '02' && (
+        {id === 2 && (
           <>
             {data.corp2.map((item) => (
               <FundingContent
-                fundName={item.fundName}
                 navData={item.navData}
                 netAssets={item.netAssets}
                 dayChange={item.dayChange}
@@ -74,11 +70,10 @@ export default function Carousel({ data, id, numb, children }) {
             ))}
           </>
         )}
-        {numb === '03' && (
+        {id === 3 && (
           <>
             {data.corp3.map((item) => (
               <FundingContent
-                fundName={item.fundName}
                 navData={item.navData}
                 netAssets={item.netAssets}
                 dayChange={item.dayChange}
@@ -87,11 +82,10 @@ export default function Carousel({ data, id, numb, children }) {
             ))}
           </>
         )}
-        {numb === '04' && (
+        {id === 4 && (
           <>
             {data.corp4.map((item) => (
               <FundingContent
-                fundName={item.fundName}
                 navData={item.navData}
                 netAssets={item.netAssets}
                 dayChange={item.dayChange}
@@ -104,13 +98,7 @@ export default function Carousel({ data, id, numb, children }) {
     </div>
   );
 }
-export const FundingContent = ({
-  fundName,
-  navData,
-  netAssets,
-  dayChange,
-  Issued,
-}) => {
+const FundingContent = ({ navData, netAssets, dayChange, Issued }) => {
   return (
     <div className="funding-container">
       <div>
@@ -119,7 +107,10 @@ export const FundingContent = ({
         </p>
       </div>
       <div>
-        <p className="funding-name">{fundName}</p>
+        <p className="funding-name">
+          Nikko AM ARK Disruptive
+          <br /> Innovation Fund
+        </p>
       </div>
       <div className="chart">
         <img src="/chart.svg" />

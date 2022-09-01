@@ -34,7 +34,14 @@ export default function Header() {
     );
   }, []);
   return (
-    <section className="header-container" style={{ height: '100vh' }}>
+    <section
+      style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justtifyContent: 'space-between',
+      }}
+    >
       <div className="menu-bar" ref={(el) => (motion = el)}>
         <Logo width={width} />
         <div
@@ -48,14 +55,12 @@ export default function Header() {
           {width > 1080 ? (
             <>
               <HeaderLinks
-                toAbout={'https://en.nikkoam.com/about-us/fact-sheet'}
-                toFunds={'https://en.nikkoam.com/etf'}
-                toInsightsNews={'https://en.nikkoam.com/insights'}
-                toStrategies={
-                  'https://en.nikkoam.com/institutional/equity-strategies'
-                }
-                toSustainability={'https://en.nikkoam.com/sustainability'}
-                toInvest={'https://en.nikkoam.com/invest'}
+                toAbout={'https://www.google.com'}
+                toFunds={'https://www.google.com'}
+                toInsightsNews={'https://www.google.com'}
+                toStrategies={'https://www.google.com'}
+                toSustainability={'https://www.google.com'}
+                toInvest={'https://www.google.com'}
               />
               <DropDown
                 region={region}
@@ -84,18 +89,19 @@ export default function Header() {
       </div>
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
+          height: '100%',
+          width: '100vw',
+          display: width > 1080 ? 'flex' : '',
+          // justifyContent: 'flex-end',
+          // alignContent: 'flex-end',
           flexDirection: width > 1080 ? 'row' : 'column',
         }}
       >
-        <div>
-          <MovingWave
-            startPosition={'.menu-bar'}
-            midPosition={'.midposition'}
-            width={width}
-          />
-        </div>
+        <MovingWave
+          startPosition={'.menu-bar'}
+          midPosition={'.midposition'}
+          width={width}
+        />
 
         <Content1
           width={width}
@@ -106,7 +112,6 @@ export default function Header() {
           link={'Learn more about who we are'}
         />
       </div>
-      <div className="midposition"></div>
     </section>
   );
 }

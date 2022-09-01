@@ -1,13 +1,26 @@
 .number-container{
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    justify-content: center;   
+    z-index: 20; 
 }
-// .control-btn{
-//     display: flex;
-//     flex-direction: column;
-//     height: 100vh;
-// }
+.number-container-mobile{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    
+}
+.control-btn{
+    display: flex;
+    flex-direction: column;
+}
+.control-btn-mobile{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.control-btn-mobile >p{
+  font-size: 52px;
+}
 .numb-active{
     font-size: 150px;
     color: var(--primary-color);
@@ -42,3 +55,8 @@
     flex-direction: row;
     border-bottom: 1px solid #8A8A8A ;
 }
+
+// .ant-carousel .slick-dots li button{
+//   display: block;
+//   font-size: 150px;
+// }

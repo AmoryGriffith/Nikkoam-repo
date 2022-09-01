@@ -1,9 +1,4 @@
 
-// .wave{
-//     transform: translate(-50%, -50%);
-//     backface-visibility: hidden;
-//     transform-style: preserve-3d;
-// }
 // .wave-mobile{
 //     position: absolute;
 //     top: 10;
@@ -23,7 +18,7 @@ $face-deg: (360deg / $face-count);
 $face-width: ($cylinder-width / $face-count);
 $face-shift: ($cylinder-width / $pi / 2);
 .cylinder {
-    top: 15;
+    top: 80px;
     left: 0;
     position: fixed;
     height: 100vh;
@@ -34,6 +29,7 @@ $face-shift: ($cylinder-width / $pi / 2);
   }
 
   .wave {
+    z-index: -1;
     position: absolute;
     height: 100vh;
     width: $face-width;
@@ -45,3 +41,27 @@ $face-shift: ($cylinder-width / $pi / 2);
       );
       transform-origin: 20% 80%;
   }
+  
+.wave-mobile{
+  z-index: -1;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: -90px;
+    left: 0;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(#{$face-deg} * var(--index))) translateZ(
+        calc((100vw /$pi/2) - -6px)
+      );
+      transform-origin: 20% 80%;
+}
+.cylinder-mobile {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 60vh;
+  width: 100vw;
+  transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+  z-index: -1;
+}

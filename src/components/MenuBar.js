@@ -1,15 +1,12 @@
 import React from 'react';
 import '../styles/menubar.scss';
 import { Drawer } from 'antd';
-import { useHistory } from 'react-router-dom';
 export const Logo = ({ width }) => {
-  const router = useHistory();
   return (
     <div
       className={width > 1080 ? 'logo' : 'logo-mobile'}
       onClick={() => {
-        router.push('/');
-        console.log('go home');
+        window.location.reload();
       }}
     >
       <img src="/logo.svg" />
@@ -96,35 +93,32 @@ export const Seacrch = () => {
 export const CollapsedMenu = ({ region, setRegion, onClose, visible }) => {
   return (
     <Drawer
-      closable={false}
+      closable={true}
       placement="right"
       onClose={onClose}
       visible={visible}
     >
       <div className="header-links-container-mobile">
-        <a href={'https://en.nikkoam.com/about-us/fact-sheet'} target="_blank">
+        <a href={'https://www.google.com'} target="_blank">
           About us
         </a>
-        <a href={'https://en.nikkoam.com/etf'} target="_blank">
+        <a href={'https://www.google.com'} target="_blank">
           Sustainability
         </a>
-        <a href={'https://en.nikkoam.com/insights'} target="_blank">
+        <a href={'https://www.google.com'} target="_blank">
           Insights & News
         </a>
-        <a
-          href={'https://en.nikkoam.com/institutional/equity-strategies'}
-          target="_blank"
-        >
+        <a href={'https://www.google.com'} target="_blank">
           Strategies
         </a>
-        <a href={'https://en.nikkoam.com/sustainability'} target="_blank">
+        <a href={'https://www.google.com'} target="_blank">
           Funds
         </a>
-        <a href={'https://en.nikkoam.com/invest'} target="_blank">
+        <a href={'https://www.google.com'} target="_blank">
           How to Invest
         </a>
       </div>
-      <DropDown
+      {/* <DropDown
         region={region}
         setRegion={setRegion}
         text1={'Vietnam'}
@@ -132,7 +126,7 @@ export const CollapsedMenu = ({ region, setRegion, onClose, visible }) => {
         text3={'Singapore'}
         text4={'America'}
         text5={'China'}
-      />
+      /> */}
     </Drawer>
   );
 };

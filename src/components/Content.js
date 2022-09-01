@@ -11,23 +11,71 @@ export const Content1 = ({ title1, title2, title3, subtitle, link, width }) => {
     );
   });
   return (
-    <div className="header-texts">
-      <p className={width > 1089 ? 'content-title' : 'content-title-mobile'}>
-        {title1} <br />
-        {title2} <br />
-        {title3} <br />
-      </p>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: width > 1080 ? 'row' : 'column',
+        justifyContent: 'space-between',
+        // alignContent: 'flex-end',
+        height: '90%',
+      }}
+    >
+      {width > 1080 ? (
+        <div style={{ width: '80%' }} />
+      ) : (
+        <div style={{ height: '40%' }} />
+      )}
+      <div className={width > 1080 ? 'header-texts' : 'header-texts-mobile'}>
+        <p className={width > 1080 ? 'content-title' : 'content-title-mobile'}>
+          {title1} <br />
+          {title2} <br />
+          {title3} <br />
+        </p>
 
-      <div className="sub-title-container">
-        <div style={{ width: '100%', height: '100%' }}>
-          <p className="content-sub-title">{subtitle}</p>
-          <p className="content-text-link">
-            {link}
-            <img
-              src="/link-icon.svg"
-              className="filter-primary-color arrow-icon"
-            />
-          </p>
+        <div
+          className={
+            width > 1080 ? 'sub-title-container' : 'sub-title-container-mobile'
+          }
+        >
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              width: '100%',
+              color: width > 1080 ? 'black' : 'grey',
+              fontSize: width > 1080 ? '30px' : '22px',
+              alignItems: 'start',
+              alignSelf: 'flex-start',
+              // marginBottom: '70px',
+            }}
+          >
+            <div>
+              <p className="content-sub-title">{subtitle}</p>
+              <a
+                style={{
+                  color: '#00A4B8',
+                  fontSize: width > 1080 ? '18px' : '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  textDecoration: 'none',
+                }}
+                href="https://www.google.com"
+                target="_blank"
+              >
+                {link}
+                <img
+                  src="/link-icon.svg"
+                  className="filter-primary-color arrow-icon"
+                  style={{
+                    marginLeft: '7px',
+                    width: '15px',
+                    alignSelf: 'center',
+                  }}
+                />
+              </a>
+            </div>
+            <div style={{ marginTop: 90 }} />
+          </div>
         </div>
       </div>
     </div>
@@ -52,19 +100,48 @@ export const Content2 = ({
     );
   });
   return (
-    <div className="about-texts">
-      <p className="about-sub-title1">{subtitle1}</p>
-      <p className={width > 1080 ? 'about-title' : 'about-title-mobile'}>
-        {title1} <br />
-        {title2} <br />
-        {title3} <br />
-      </p>
-      <div className="about-sub-title-container">
-        <p className="about-sub-title">{subtitle2}</p>
-        <p className="about-text-link">
-          {link}
-          <img src="/link-icon.svg" className="filter-white arrow-icon" />
+    <div
+      className={width > 1080 ? 'about-texts' : 'about-texts-mobille'}
+      style={{ padding: width > 1080 ? '50px' : '20px' }}
+    >
+      <div style={{ height: '40%' }} />
+      <div>
+        <p className="about-sub-title1">{subtitle1}</p>
+        <p className={width > 1080 ? 'about-title' : 'about-title-mobile'}>
+          {title1} <br />
+          {title2} <br />
+          {title3} <br />
         </p>
+        <div className="about-sub-title-container">
+          <div>
+            <p className="about-sub-title">{subtitle2}</p>
+            <a
+              href="https://www.google.com"
+              target="_blank"
+              className="about-text-link"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: '18px',
+                textDecoration: 'none',
+                color: 'white',
+              }}
+            >
+              {link}
+              <img
+                src="/link-icon.svg"
+                className="filter-white arrow-icon"
+                style={{
+                  marginLeft: '7px',
+                  width: '15px',
+                  alignSelf: 'center',
+                }}
+              />
+            </a>
+          </div>
+
+          {width > 1080 ? <div style={{ marginTop: '15%' }} /> : null}
+        </div>
       </div>
     </div>
   );

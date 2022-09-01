@@ -7,7 +7,9 @@ import { Content1, Content2 } from '../components/Content';
 import useScreen from '../hooks/useScreen';
 export default function About() {
   const { width } = useScreen();
-  let aboutReveal = CSSRulePlugin.getRule('.about-content:after');
+  let aboutReveal = CSSRulePlugin.getRule(
+    width > 1080 ? '.about-content:after' : 'about-content-mobile:after'
+  );
   const tl = new TimelineLite();
   const aboutContainer = useRef(null);
   const group = useRef(null);
@@ -15,7 +17,7 @@ export default function About() {
     tl.to('.about-container', 0, {
       scrollTrigger: {
         trigger: '.about-container',
-        start: 'top center',
+        start: width > 1080 ? 'top bottom' : 'top top',
         scrub: true,
       },
       css: { visibility: 'visible' },
@@ -25,7 +27,7 @@ export default function About() {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to('.grp-img', {
       rotateZ: 360,
-      x: 100,
+      // x: 100,
       duration: 2.8,
       scrollTrigger: {
         trigger: '.grp-img',
@@ -37,9 +39,21 @@ export default function About() {
   });
   return (
     <section className="about-container" ref={aboutContainer}>
-      <div className="about-content">
+      <div
+        className={width > 1080 ? 'about-content' : 'about-content-mobile'}
+        style={{
+          display: 'flex',
+          flexDirection: width > 1080 ? 'row' : 'column',
+          justifyContent: 'center',
+        }}
+      >
         <div style={{ width: '40vw' }} className="img-container">
-          <img src="/group.svg" className="grp-img" ref={group} />
+          <img
+            src="/group.svg"
+            className="grp-img"
+            ref={group}
+            style={{ width: width > 1080 ? '60%' : '30%' }}
+          />
         </div>
         <Content2
           width={width}
