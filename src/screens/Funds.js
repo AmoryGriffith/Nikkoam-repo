@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import Slide from '../components/Slides';
+import { Slide, SlideMobile } from '../components/Slides';
 import { Carousel } from 'antd';
 import '../styles/fund.scss';
 import useScreen from '../hooks/useScreen';
@@ -59,94 +59,194 @@ export default function Funds() {
         slider.current = ref;
       }}
     >
-      <Slide
-        value={numb}
-        width={width}
-        id={1}
-        data={sample_data}
-        onClick1={() => {
-          setNumb(0);
-          slider.current.goTo(0);
-        }}
-        onClick2={() => {
-          setNumb(1);
-          slider.current.goTo(1);
-        }}
-        onClick3={() => {
-          setNumb(2);
-          slider.current.goTo(2);
-        }}
-        onClick4={() => {
-          setNumb(3);
-          slider.current.goTo(3);
-        }}
-      />
-      <Slide
-        value={numb}
-        width={width}
-        id={2}
-        data={sample_data}
-        onClick1={() => {
-          setNumb(0);
-          slider.current.goTo(0);
-        }}
-        onClick2={() => {
-          setNumb(1);
-          slider.current.goTo(1);
-        }}
-        onClick3={() => {
-          setNumb(2);
-          slider.current.goTo(2);
-        }}
-        onClick4={() => {
-          setNumb(3);
-          slider.current.goTo(3);
-        }}
-      />
-      <Slide
-        value={numb}
-        width={width}
-        id={3}
-        data={sample_data}
-        onClick1={() => {
-          setNumb(0);
-          slider.current.goTo(0);
-        }}
-        onClick2={() => {
-          setNumb(1);
-          slider.current.goTo(1);
-        }}
-        onClick3={() => {
-          setNumb(2);
-          slider.current.goTo(2);
-        }}
-        onClick4={() => {
-          setNumb(3);
-          slider.current.goTo(3);
-        }}
-      />
-      <Slide
-        value={numb}
-        width={width}
-        id={4}
-        data={sample_data}
-        onClick1={() => {
-          setNumb(1);
-          slider.current.goTo(1);
-        }}
-        onClick2={() => {
-          setNumb(2);
-          slider.current.goTo(2);
-        }}
-        onClick3={() => {
-          setNumb(3);
-          slider.current.goTo(3);
-        }}
-        onClick4={() => {
-          setNumb(4);
-          slider.current.goTo(4);
-        }}
-      />
+      {width > 1080 ? (
+        <Slide
+          value={numb}
+          width={width}
+          id={1}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(0);
+            slider.current.goTo(0);
+          }}
+          onClick2={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick3={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick4={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+        />
+      ) : (
+        <SlideMobile
+          value={numb}
+          width={width}
+          id={1}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(0);
+            slider.current.goTo(0);
+          }}
+          onClick2={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick3={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick4={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+        />
+      )}
+      {width > 1080 ? (
+        <Slide
+          value={numb}
+          width={width}
+          id={2}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(0);
+            slider.current.goTo(0);
+          }}
+          onClick2={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick3={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick4={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+        />
+      ) : (
+        <SlideMobile
+          value={numb}
+          width={width}
+          id={2}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(0);
+            slider.current.goTo(0);
+          }}
+          onClick2={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick3={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick4={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+        />
+      )}
+      {width > 1080 ? (
+        <Slide
+          value={numb}
+          width={width}
+          id={3}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(0);
+            slider.current.goTo(0);
+          }}
+          onClick2={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick3={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick4={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+        />
+      ) : (
+        <SlideMobile
+          value={numb}
+          width={width}
+          id={3}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(0);
+            slider.current.goTo(0);
+          }}
+          onClick2={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick3={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick4={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+        />
+      )}
+      {width > 1080 ? (
+        <Slide
+          value={numb}
+          width={width}
+          id={4}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick2={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick3={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+          onClick4={() => {
+            setNumb(4);
+            slider.current.goTo(4);
+          }}
+        />
+      ) : (
+        <SlideMobile
+          value={numb}
+          width={width}
+          id={4}
+          data={sample_data}
+          onClick1={() => {
+            setNumb(0);
+            slider.current.goTo(0);
+          }}
+          onClick2={() => {
+            setNumb(1);
+            slider.current.goTo(1);
+          }}
+          onClick3={() => {
+            setNumb(2);
+            slider.current.goTo(2);
+          }}
+          onClick4={() => {
+            setNumb(3);
+            slider.current.goTo(3);
+          }}
+        />
+      )}
     </Carousel>
   );
 }

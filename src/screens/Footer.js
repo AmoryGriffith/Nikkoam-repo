@@ -5,21 +5,27 @@ export default function Footer() {
   const { width } = useScreen();
   return (
     <div
-      className="footer-container"
+      className={width > 1080 ? 'footer-container' : 'footer-container-mobile'}
       style={{
         display: 'flex',
         flexDirection: width > 1080 ? 'row' : 'column',
         justifyContent: 'center',
       }}
     >
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: width > 1080 ? 'center' : 'flex-start',
+          padding: width > 1080 ? '0px' : '0px 20px',
+        }}
+      >
         <p
           style={{
             fontSize: width > 1080 ? '73px' : '42px',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: width > 1080 ? 'center' : 'flex-start',
           }}
         >
           Invest with
@@ -38,81 +44,42 @@ export default function Footer() {
           width: width > 1080 ? '55vw' : '100vw',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: width > 1080 ? 'center' : 'flex-start',
           marginBottom: '10vh',
+          paddingRight: width > 1080 ? '0px' : '20px',
         }}
       >
-        <div
-          style={{
-            alignSelf: width > 1080 ? 'flex-end' : 'center',
-
-            width: '40vw',
-            fontSize: width > 1080 ? '30px' : '22px',
-          }}
-          className="footer-content"
-        >
-          <a target="_blank" href="https://www.google.com">
-            Equity
-          </a>
-          <img
-            className="footer-icon"
-            src="/link-icon.svg"
-            style={{ width: width > 1080 ? '30px' : '22px' }}
-          />
-        </div>
-        <div
-          style={{
-            alignSelf: width > 1080 ? 'flex-end' : 'center',
-            width: '40vw',
-            fontSize: width > 1080 ? '30px' : '22px',
-          }}
-          className="footer-content"
-        >
-          <a target="_blank" href="https://www.google.com">
-            Bond
-          </a>
-          <img
-            className="footer-icon"
-            src="/link-icon.svg"
-            style={{ width: width > 1080 ? '30px' : '22px' }}
-          />
-        </div>
-        <div
-          style={{
-            alignSelf: width > 1080 ? 'flex-end' : 'center',
-            width: '40vw',
-            fontSize: width > 1080 ? '30px' : '22px',
-          }}
-          className="footer-content"
-        >
-          <a target="_blank" href="https://www.google.com">
-            Multi-Assets
-          </a>
-          <img
-            className="footer-icon"
-            src="/link-icon.svg"
-            style={{ width: width > 1080 ? '28px' : '22px' }}
-          />
-        </div>
-        <div
-          style={{
-            alignSelf: width > 1080 ? 'flex-end' : 'center',
-
-            width: '40vw',
-            fontSize: width > 1080 ? '28px' : '22px',
-          }}
-          className="footer-content"
-        >
-          <a target="_blank" href="https://www.google.com">
-            ETFs
-          </a>
-          <img
-            className="footer-icon"
-            src="/link-icon.svg"
-            style={{ width: width > 1080 ? '28px' : '22px' }}
-          />
-        </div>
+        <LinkTexts text={'Equity'} width={width} />
+        <LinkTexts text={'Bond'} width={width} />
+        <LinkTexts text={'Multi-Assets '} width={width} />
+        <LinkTexts text={'ETFs'} width={width} />
       </div>
     </div>
   );
 }
+const LinkTexts = ({ width, text }) => {
+  return (
+    <div
+      style={{
+        alignSelf: width > 1080 ? 'flex-end' : 'center',
+        width: width > 1080 ? '40vw' : '85vw',
+        fontSize: width > 1080 ? '30px' : '22px',
+        padding: width > 1080 ? '0px' : '0px 10px',
+      }}
+      className={width > 1080 ? 'footer-content' : 'footer-content-mobile'}
+    >
+      <a target="_blank" href="https://www.google.com">
+        {text}
+      </a>
+      {width > 1080 ? (
+        <img
+          className="footer-icon"
+          src="/link-icon.svg"
+          style={{ width: width > 1080 ? '30px' : '22px' }}
+        />
+      ) : (
+        <div></div>
+      )}
+    </div>
+  );
+};
