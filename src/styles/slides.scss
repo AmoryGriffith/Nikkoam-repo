@@ -1,17 +1,20 @@
 .number-container{
     display: flex;
     flex-direction: row;
-    justify-content: center;   
-    z-index: 20; 
+    justify-content: center;
+    z-index: 20;
+    height: auto;
 }
 .number-container-mobile{
   display: flex;
   flex-direction: column;
-  justify-content: center;    
+  align-items:flex-end;
+    justify-content: flex-end;
 }
 .control-btn{
     display: flex;
     flex-direction: column;
+    text-align: end;
 }
 .control-btn-mobile{
   display: flex;
@@ -22,41 +25,47 @@
   font-size: 52px;
 }
 .numb-active{
-    font-size: 150px;
+    font-size: 200px;
     color: var(--primary-color);
 }
 .numb-default{
-    font-size: 150px;
+    font-size: 200px;
     color: var(--secondary-color);
 }
 
 .funding-container{
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-self: center;
+    
 }
-.funding-tilte{
-    font-size: 73px;
-}
+
 .funding-name{
     color: var(--primary-color);
     font-size: 40px;
 }
-.featured-data p{
-}
-.featured-data div {
+
+.featured-data > div {
     text-align: center;
     align-self: center;
     align-items: center;
     justify-content: flex-start;
-    padding: 20px 20px;
+    width: 20vw;
     font-size: 18px;
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid #8A8A8A ;
 }
-
-// .ant-carousel .slick-dots li button{
-//   display: block;
-//   font-size: 150px;
-// }
+.featured-data-mobile >div{
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+}
+.statistic{
+    width: 50vw;
+}
+.statistic-mobile{
+    width: 100vw;
+}

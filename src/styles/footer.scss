@@ -1,0 +1,42 @@
+.footer-container{
+    height: 100vh;
+    background: #DFF8F8;
+    background-image: url('../../public/reverse-wave.svg') ;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.footer-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.5px solid grey;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    color: grey;
+}
+.footer-content a{
+    color: grey;
+    padding: 10px;
+}
+.footer-content:hover a{
+    color: var(--primary-color);
+}
+.footer-content:hover{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 0.5px solid var(--primary-color);
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    color: var(--primary-color);
+}
+.footer-content > img{
+    filter: invert(78%) sepia(13%) saturate(26%) hue-rotate(42deg) brightness(106%) contrast(95%);
+
+}
+.footer-content:hover >img{
+    filter: invert(61%) sepia(40%) saturate(7086%) hue-rotate(152deg) brightness(91%) contrast(103%);
+
+}

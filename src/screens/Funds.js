@@ -10,6 +10,7 @@ export default function Funds() {
         navData: 8201293,
         dayChange: 2214,
         Issued: 4716686634,
+        netAssets: 7309193,
       },
     ],
     corp2: [
@@ -17,6 +18,7 @@ export default function Funds() {
         navData: 4319113,
         dayChange: 194,
         Issued: 1710686634,
+        netAssets: 3201193,
       },
     ],
     corp3: [
@@ -24,6 +26,7 @@ export default function Funds() {
         navData: 7309193,
         dayChange: 1094,
         Issued: 3710686634,
+        netAssets: 1312393,
       },
     ],
     corp4: [
@@ -31,6 +34,7 @@ export default function Funds() {
         navData: 7309193,
         dayChange: 1001,
         Issued: 2521321634,
+        netAssets: 9439198,
       },
     ],
   };
@@ -39,8 +43,16 @@ export default function Funds() {
   const { width } = useScreen();
   return (
     <Carousel
+      dots={false}
       pauseOnHover={false}
-      style={{ height: '100vh' }}
+      style={{
+        height: 'auto',
+        alignContent: 'center',
+        display: 'flex',
+        alignItems: 'flex-end',
+        marginBottom: '20px',
+        marginTop: '30px',
+      }}
       autoplay={true}
       vertical={width > 1080 ? true : false}
       ref={(ref) => {
