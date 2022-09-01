@@ -25,12 +25,12 @@ export default function About() {
   }, []);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to('.grp-img', {
+    gsap.to(width > 1080 ? '.grp-img' : '.grp-img-mobile', {
       rotateZ: 390,
       // x: 100,
       duration: 2.8,
       scrollTrigger: {
-        trigger: '.grp-img',
+        trigger: width > 1080 ? '.grp-img' : '.grp-img-mobile',
         start: 'top center',
         scrub: true,
         toggleActions: 'restart pause resume reverse',
@@ -41,7 +41,7 @@ export default function About() {
     <section
       className="about-container"
       ref={aboutContainer}
-      style={{ height: width > 1080 ? '100vh' : '140vh', marginBottom: '25px' }}
+      style={{ height: 'auto', marginBottom: '25px' }}
     >
       <div
         className={width > 1080 ? 'about-content' : 'about-content-mobile'}
@@ -53,13 +53,14 @@ export default function About() {
       >
         <div
           style={{
+            alignSelf: 'center',
             width: width > 1080 ? '40vw' : '100vw',
           }}
-          className="img-container"
+          className={width > 1080 ? 'img-container' : 'img-container-mobile'}
         >
           <img
             src="/group.svg"
-            className="grp-img"
+            className={width > 1080 ? 'grp-img' : 'grp-img-mobile'}
             ref={group}
             style={{ width: width > 1080 ? '60%' : '60%' }}
           />

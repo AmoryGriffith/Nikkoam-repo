@@ -6,7 +6,7 @@ export const Content1 = ({ title1, title2, title3, subtitle, link, width }) => {
   useEffect(() => {
     gsap.fromTo(
       '.header-texts',
-      { x: 300, y: 200, opacity: 0 },
+      { x: 200, y: 100, opacity: 0 },
       { x: 0, y: 50, opacity: 1, duration: 1.25 }
     );
   });
@@ -101,20 +101,31 @@ export const Content2 = ({
   });
   return (
     <div
-      className={width > 1080 ? 'about-texts' : 'about-texts-mobille'}
-      style={{ padding: width > 1080 ? '50px' : '20px' }}
+      className={width > 1080 ? 'about-texts' : 'about-texts-mobile'}
+      // style={{ padding: width > 1080 ? '50px' : 'auto' }}
     >
       <div style={{ height: '40%' }} />
       <div>
-        <p className="about-sub-title1">{subtitle1}</p>
+        <p
+          className="about-sub-title1"
+          style={{ marginBottom: width > 1080 ? '0px' : '70px' }}
+        >
+          {subtitle1}
+        </p>
         <p className={width > 1080 ? 'about-title' : 'about-title-mobile'}>
           {title1} <br />
           {title2} <br />
           {title3} <br />
         </p>
-        <div className="about-sub-title-container">
+        <div
+          className={
+            width > 1080
+              ? 'about-sub-title-container'
+              : 'about-sub-title-container-mobile'
+          }
+        >
           <div>
-            <p className="about-sub-title">{subtitle2}</p>
+            <p className="about-sub-title2">{subtitle2}</p>
             <a
               href="https://www.google.com"
               target="_blank"
@@ -125,6 +136,7 @@ export const Content2 = ({
                 fontSize: '18px',
                 textDecoration: 'none',
                 color: 'white',
+                marginTop: width > 1080 ? '0px' : '70px',
               }}
             >
               {link}

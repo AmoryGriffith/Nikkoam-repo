@@ -55,6 +55,7 @@
     width: 55vw;
     height: 100%;
     align-content: flex-end;
+    padding: 50px;
 }
 .about-texts-mobile {
     display: flex;
@@ -62,26 +63,32 @@
     z-index: 4;
     width: 100vw;
     height: 80vh;
-    align-content: flex-end;
+    align-items: center;
+    padding: 20px 20px;
+    justify-content: center;
 }
-.about-texts  P{
+.about-texts  p{
     color: white;
     
 }
 .about-title{
     font-size: 73px;
     line-height: 1;
+    color: white;
 }
 .about-title-mobile{
     font-size: 42px;
     line-height: 1;
+    color: white;
 }
 .about-sub-title2{
     font-size: 16px;
+    color:white;
 }
 .about-sub-title1{
     font-size: 18px;
     align-self: flex-start;
+    color:white
 }
 
 .about-sub-title-container {
@@ -91,4 +98,11 @@
     align-content: flex-start;
     padding: 1px 40px 10px 20px ;
     border-left: 0.25px solid white ;
+}
+.about-sub-title-container-mobile {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-content: flex-start;
+    padding: 10px 5px ;
 }
